@@ -1,0 +1,16 @@
+services:
+  n8n-app:
+    image: n8nio/n8n:${VERSION}
+    container_name: n8n-${n8n_HOSTNAME}
+    hostname: ${n8n_HOSTNAME}
+    restart: always
+    volumes:
+    - "${VOLUME_PATH:-/var/lib/n8n}:/home/node/.n8n:rw"
+    environment:
+    - "GENERIC_TIMEZONE=${TIMEZONE -Europe/Warsaw}"
+    - "TZ=${TIMEZONE -Europe/Warsaw}"
+    - "PUID=1031"
+    - "PGID=100"
+    - "N8N_SECURE_COOKIE=${N8N_SECURE_COOKIE -false}"
+    ports:
+    - "${SSH_PORT:-5678}:5678"

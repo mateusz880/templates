@@ -1519,5 +1519,55 @@
         "stackfile": "edge/anyviz/docker-compose.yml"
       }
     }
+    {
+      "id":70,
+      "type":1,
+      "title": "Self-hosting n8n",
+      "description": "Test",
+      "categories": ["continuous-integration"],
+      "platform":"linux",
+      "logo": "https://raw.githubusercontent.com/n8n-io/n8n/refs/heads/master/assets/n8n-logo.png",
+      "repository":{
+        "url":"https://github.com/portainer/templates",
+        "stackfile": "stacks/n8n/docker-compose.yml"
+      },
+      "env": [
+        {
+          "name": "VERSION",
+          "label": "n8n version",
+          "description": "Version of n8n to use ('latest' if empty)",
+          "default": "latest"
+        },
+        {
+          "name": "n8n_HOSTNAME",
+          "label": "n8n hostname",
+          "description": "Global hostname to be registered by n8n"
+        },
+        {
+          "name": "VOLUME_PATH",
+          "label": "n8n volume path",
+          "description": "Host path to be bound to /mnt/n8n (`/var/lib/n8n` if empty)",
+          "default": "/var/lib/n8n"
+        },
+        {
+          "name": "WEB_PORT",
+          "label": "WEB port",
+          "description": "Host port to expose WEB port of n8n (5678 if empty)",
+          "default": "5678"
+        },
+        {
+          "name": "TIMEZONE",
+          "label": "TIMEZONE",
+          "description": "TIMEZONE",
+          "default": "Europe/Warsaw"
+        },
+        {
+          "name": "N8N_SECURE_COOKIE",
+          "label": "N8N_SECURE_COOKIE",
+          "description": "N8N_SECURE_COOKIE true lub false",
+          "default": "true"
+        }
+      ]
+    }
   ]
 }
